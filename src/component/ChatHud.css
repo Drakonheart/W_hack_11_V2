@@ -1,0 +1,114 @@
+.chat_hud_main {
+    flex: 1 1;
+    background-color: rgba(120, 44, 44, 0);
+    height: 100%;
+    position: relative; /* Set position to relative */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat_hud_main_top_header{
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 0, 0, 0);
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+.log_gpt_log{
+    width: 50px;
+    height: 55px;
+
+}
+
+
+.gptContinaer{
+    position: relative;
+    width: 100%;
+    flex: 1 1;
+    overflow-y: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.intoruction_chat {
+    position: absolute;
+    color: wheat;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* This will center the element */
+    font-family: "inter";
+    font-size: 39px;
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+.glowing-oval {
+    position: absolute;
+    width: 300px; /* Adjust the width of the oval */
+    height: 100px; /* Adjust the height of the oval */
+    background-color: var(--color-palette_2); /* Base color of the oval */
+    border-radius: 50px; /* Makes the shape oval */
+    box-shadow: 0 0 20px 10px rgba(91, 75, 51, 0.5), /* Outer glow */
+                0 0 40px 20px rgba(91, 75, 51, 0.3); /* Additional blur */
+    filter: blur(100px); /* Adds a slight blur to the oval */
+    left: 50%; /* Position it from the left side */
+    top: 50%; /* Position it from the top side */
+    transform: translate(-50%, -50%); /* Center it by moving it left and up by half its width and height */
+    margin: 0; /* Reset margin */
+    animation: glow-animation 1.5s infinite alternate; /* Add animation */
+}
+
+/* Keyframes for the glow animation */
+@keyframes glow-animation {
+    0% {
+        box-shadow: 0 0 20px 10px rgba(91, 75, 51, 0.5), 
+                    0 0 40px 20px rgba(91, 75, 51, 0.3);
+        filter: blur(100px);
+    }
+    100% {
+        box-shadow: 0 0 40px 20px rgba(91, 75, 51, 0.8), 
+                    0 0 80px 40px rgba(91, 75, 51, 0.5);
+        filter: blur(120px);
+    }
+}
+

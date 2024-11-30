@@ -1,0 +1,129 @@
+.info_hud_main {
+    width: calc(50% - 20px); /* Width minus left and right margins */
+    height: calc(100% - 20px); /* Height minus top and bottom margins */
+    background-color: rgba(0, 0, 0, 0.609);
+    margin: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-width:calc(50% - 20px) ;
+
+
+}
+
+.resize-bar {
+  position: absolute;
+  height: 100px; /* or any height you prefer */
+  cursor: col-resize;
+  background-color: #444;
+  border-radius: 200px;
+  
+  /* Center it vertically in the parent container */
+  top: 50%;
+  transform: translateY(-50%); /* Adjusts the position to exactly center it */
+}
+
+
+
+
+
+.top_header_info_hud{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 0, 0, 0);
+    position: relative;
+
+
+}
+
+.top_header_info_hud_top_right_btn{
+  position: absolute;
+  right: 0;
+  margin-top:20px;
+  margin-right: 10px;
+}
+
+.upload_text_btn{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+.slider-container {
+    display: flex;
+    background-color: #222;
+    border-radius: 20px;
+    padding: 0px;
+    height: 40px;
+    width: fit-content;
+  }
+  
+  .slider-button {
+    color: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+  }
+  
+  .slider-button.active {
+    background-color: #5b4b33; /* Brownish color similar to the image */
+  }
+  
+  .slider-button:not(.active) {
+    background-color: transparent;
+  }
+
+  .log_viewer {
+    width: calc(100% - 20px);
+    flex-grow: 1;
+    background-color: rgba(39, 23, 23, 0);
+    margin: 10px;
+    box-sizing: border-box;
+    color: white;
+    padding: 10px 20px;
+    white-space: pre-wrap;
+    overflow-y: scroll;
+    height: 100%;
+    scrollbar-width: thin; /* For Firefox: makes the scrollbar thin */
+    scrollbar-color: #2B2B2B transparent; /* Thumb color and transparent track */
+    font-family: "Fira Code";
+    font-size: 12px;
+
+}
+  
+  /* Custom scrollbar styles for WebKit browsers (Chrome, Edge, Safari) */
+  .log_viewer::-webkit-scrollbar {
+    width: 10px; /* Scrollbar width */
+  }
+  
+  .log_viewer::-webkit-scrollbar-track {
+    background: transparent; /* Makes the track background invisible */
+  }
+  
+  .log_viewer::-webkit-scrollbar-thumb {
+    background-color: #5b4b33; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+    border: none; /* Removes any border around the thumb */
+  }
+  
+  /* Hides the up and down arrows for the scrollbar */
+  .log_viewer::-webkit-scrollbar-button {
+    display: none; /* Hides the scrollbar arrows */
+  }
+  
+
+
+  
+  
+  
