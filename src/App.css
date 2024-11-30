@@ -8,7 +8,6 @@
 
   --color-btn_1: #1C1C1C; /* Page background color */
 
-
 }
 
 
@@ -17,9 +16,9 @@
 .BTN1 {
   background-color: var(--color-btn_1);
   border-radius: 15px;
-  border: solid var(--color-palette_2) 1px;
+  border: solid var(--color-palette_2) 0px;
   cursor: pointer;
-  color: #c49241;
+  color: #ffdca3;
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 

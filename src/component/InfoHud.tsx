@@ -6,6 +6,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import LogoDevIcon from '@mui/icons-material/LogoDev';
 import EqualizerIcon from '@mui/icons-material/Equalizer';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import TuneIcon from '@mui/icons-material/Tune';
 
 interface InfoHudProps {
   story: string;
@@ -111,9 +112,10 @@ const InfoHud: React.FC<InfoHudProps> = ({ story, setStory }) => {
           </div>
         </div>
 
-        <div className="adjustBtn BTN1 ">
-            <EqualizerIcon/>
-            <div>Adjust</div>
+        <div className="adjustBtn BTN1 " onClick={()=>{
+          setIsOpen(!isOpen)
+        }}>
+            <TuneIcon style={{marginRight:"5px"}}/>
         </div>
 
         <div className="difModeContainer">
@@ -133,9 +135,23 @@ const InfoHud: React.FC<InfoHudProps> = ({ story, setStory }) => {
 
         {isOpen && (
         <div className="line-controls ">
-          <button onClick={() => setNumLines(5)}>Last 5 Lines</button>
-          <button onClick={() => setNumLines(50)}>Last 50 Lines</button>
-          <button onClick={() => setNumLines(100)}>Last 100 Lines</button>
+          
+          <button onClick={() =>{
+            setNumLines(5);
+            setIsOpen(!isOpen);
+          }}>Last 5 Lines</button>
+          <button onClick={() => {
+            setNumLines(50)             
+            setIsOpen(!isOpen);
+          }}>Last 50 Lines</button>
+          <button onClick={() => {
+            setNumLines(100)             
+            setIsOpen(!isOpen);
+          }}>Last 100 Lines</button>
+          <button onClick={() => {
+            setNumLines(300)             
+            setIsOpen(!isOpen);
+          }}>Last 300 Lines</button>
           <button onClick={() => setNumLines(fileContent.split("\n").length)}>
             Show All
           </button>
