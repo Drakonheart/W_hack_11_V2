@@ -58,31 +58,7 @@
 }
 
 
-.slider-container {
-    display: flex;
-    background-color: #222;
-    border-radius: 20px;
-    padding: 0px;
-    height: 40px;
-    width: fit-content;
-  }
-  
-  .slider-button {
-    color: white;
-    padding: 10px 20px;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-weight: bold;
-  }
-  
-  .slider-button.active {
-    background-color: #5b4b33; /* Brownish color similar to the image */
-  }
-  
-  .slider-button:not(.active) {
-    background-color: transparent;
-  }
+
 
   .log_viewer {
     width: calc(100% - 20px);
@@ -121,6 +97,98 @@
   .log_viewer::-webkit-scrollbar-button {
     display: none; /* Hides the scrollbar arrows */
   }
+
+  .difModeContainer{
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    margin-top: 15px;
+    font-family: "inter";
+    font-size: 12px;
+    justify-content: center;
+
+
+  }
+
+  .liveBtn{
+    border: rgba(245, 222, 179, 0.352) solid 1px;
+    width: 100px;
+    height: 40px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: wheat;
+    gap: 5px;
+
+  }
+
+  .notifiBtn{
+    border: rgba(245, 222, 179, 0.352) solid 1px;
+    gap: 5px;
+    width: 100px;
+    height: 40px;    color: wheat;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .top_header_info_hud_top_right_btn{
+    position: absolute;
+    right: 0;
+    margin-top:20px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  
+
+  .arroback {
+    transform: scaleX(-1); /* Flips the element horizontally */
+    cursor: pointer;
+    width: 30px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+  }
+  
+
+  .adjustBtn{
+    font-family: "inter";
+    font-size: 13px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding-left: -29px;
+    box-sizing: border-box;
+    position: absolute;
+    height: 40px;
+    border-radius: 20px;
+    width: 110px;
+    left: 0;
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+
+  .adjustBtn{
+
+  }
+
+
   
 
 

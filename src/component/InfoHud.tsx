@@ -1,18 +1,27 @@
 import "./InfoHud.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import LogoDevIcon from '@mui/icons-material/LogoDev';
+import EqualizerIcon from '@mui/icons-material/Equalizer';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
+interface InfoHudProps {
+  story: string;
+  setStory: React.Dispatch<React.SetStateAction<string>>; // Function to update the story
+}
 
-
-const InfoHud: React.FC = () => {
+const InfoHud: React.FC<InfoHudProps> = ({ story, setStory }) => {
   const [active, setActive] = useState<"LIVE LOG" | "NOTIFI">("LIVE LOG");
+  const [numLines, setNumLines] = useState<number>(5); // Default to last 5 lines
+  const [fileContent, setFileContent] = useState<string>("");
+  const [isOpen, setIsOpen] = useState(false); // To control dropdown visibility
+
 
   const handleToggle = (label: "LIVE LOG" | "NOTIFI") => {
     setActive(label);
   };
-
-  const [fileContent, setFileContent] = useState<string>("");
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -35,14 +44,11 @@ const InfoHud: React.FC = () => {
 
     const handleMouseMove = (event: { clientX: number }) => {
       const deltaX = event.clientX - startX;
-
-      // Adjust the width calculation to make it increase when dragging left
       const newWidth = Math.max(
         20,
         Math.min(80, startWidth - (deltaX / window.innerWidth) * 100)
       );
-
-      setAdjustable2Width(newWidth); // Update the width of adjustable2
+      setAdjustable2Width(newWidth);
     };
 
     const handleMouseUp = () => {
@@ -53,17 +59,27 @@ const InfoHud: React.FC = () => {
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseup", handleMouseUp);
   };
-  
+
+  const getFilteredContent = () => {
+    const lines = fileContent.split("\n");
+    return lines.slice(-numLines).join("\n");
+  };
+
+  useEffect(() => {
+    if (fileContent) {
+      setStory(getFilteredContent());
+    }
+  }, [fileContent, numLines]); // Update when fileContent or numLines changes
 
   return (
     <motion.div
       className="info_hud_main"
       style={{
-        width: `${adjustable2Width}%`, // Dynamically adjust width of adjustable2
+        width: `${adjustable2Width}%`,
       }}
-      initial={{ opacity: 0, x: '100%' }} // Start off with 0 opacity and position off to the right
-      animate={{ opacity: 1, x: 0 }} // Animate to full opacity and slide into position
-      transition={{ duration: 0.7 }} // Transition duration for both opacity and x
+      initial={{ opacity: 0, x: "100%" }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.7 }}
     >
       <div
         className="resize-bar"
@@ -77,7 +93,6 @@ const InfoHud: React.FC = () => {
       />
       <div className="top_header_info_hud">
         <div className="top_header_info_hud_top_right_btn">
-          {/* Hidden file input */}
           <input
             type="file"
             accept=".txt"
@@ -85,33 +100,53 @@ const InfoHud: React.FC = () => {
             style={{ display: "none" }}
             onChange={handleFileUpload}
           />
-
-          {/* Button to trigger the file input */}
           <button
             className="upload_text_btn BTN1"
             onClick={() => document.getElementById("fileInput")?.click()}
           >
             <UploadFileIcon />
           </button>
+          <div className="arroback BTN1">
+            <ArrowBackIosIcon />
+          </div>
         </div>
 
-        <div className="slider-container">
-          <div
-            className={`slider-button ${active === "LIVE LOG" ? "active" : ""}`}
-            onClick={() => handleToggle("LIVE LOG")}
-          >
-            LIVE LOG
-          </div>
-          <div
-            className={`slider-button ${active === "NOTIFI" ? "active" : ""}`}
-            onClick={() => handleToggle("NOTIFI")}
-          >
-            NOTIFI
-          </div>
+        <div className="adjustBtn BTN1 ">
+            <EqualizerIcon/>
+            <div>Adjust</div>
         </div>
+
+        <div className="difModeContainer">
+          <div className="liveBtn BTN2">
+            <LogoDevIcon/>
+            <div>Live</div>
+          </div>
+          <div className="notifiBtn  BTN2">
+            <NotificationsIcon/>
+            <div>Notifi</div>
+            
+          </div>
+
+        </div>
+
+     
+
+        {isOpen && (
+        <div className="line-controls ">
+          <button onClick={() => setNumLines(5)}>Last 5 Lines</button>
+          <button onClick={() => setNumLines(50)}>Last 50 Lines</button>
+          <button onClick={() => setNumLines(100)}>Last 100 Lines</button>
+          <button onClick={() => setNumLines(fileContent.split("\n").length)}>
+            Show All
+          </button>
+        </div>
+      )}
+
+        
       </div>
+
       <div className="upload_log"></div>
-      <div className="log_viewer">{fileContent}</div>
+      <div className="log_viewer">{getFilteredContent()}</div>
     </motion.div>
   );
 };

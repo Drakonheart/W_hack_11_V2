@@ -18,9 +18,11 @@ import {
 } from '@chatscope/chat-ui-kit-react'
 import { useEffect, useState } from "react";
 
+interface ChatHudProps {
+  story: string;  // Receive story from parent
+}
 
-
-const ChatHud: React.FC = () => {
+const ChatHud: React.FC<ChatHudProps> = ({story}) => {
 
 
   const [messagesEmpty, setMessagesEmpty] = useState(true)
@@ -53,7 +55,7 @@ const ChatHud: React.FC = () => {
     setChatGptTyping(true)
 
     // Send the message to ChatGPT and get the response
-    const response = await getChatGPTResponse(message)
+    const response = await getChatGPTResponse(message, story)
 
     // Create a new message object for the assistant's response
     const responseMessage: MessageModel = {
@@ -85,7 +87,7 @@ const ChatHud: React.FC = () => {
 
 
 
-  return (
+  return ( 
     <div className="chat_hud_main">
       <div className="glowing-oval"></div>
       <div className="chat_hud_main_top_header">
