@@ -33,6 +33,47 @@
     overflow-y: hidden;
 }
 
+.profileIcon{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border-radius: 14px;
+    width: 40px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.startNewConvo{
+
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 30px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 20px;
+    font-family: "inter";
+    color: rgb(255, 244, 223);
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.startNewConvoDiv{
+    margin-right: 100px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 
 
 

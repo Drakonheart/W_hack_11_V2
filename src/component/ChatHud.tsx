@@ -3,6 +3,7 @@ import Typewriter from "typewriter-effect";
 import logo from "../assets/logGptLogo.png";
 import { getChatGPTResponse } from '../chatGPT/ChatGPTService'; // Adjust the import path
 import { motion } from 'framer-motion';
+import Person2Icon from '@mui/icons-material/Person2';
 
 
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
@@ -88,9 +89,16 @@ const ChatHud: React.FC = () => {
     <div className="chat_hud_main">
       <div className="glowing-oval"></div>
       <div className="chat_hud_main_top_header">
-        <div style={{display:"flex", flexDirection:"row", alignItems:'center', gap:"10px"}}>
+        <div style={{display:"flex", flexDirection:"row", alignItems:'center', gap:"10px", width:'100%'}}>
           <img className="log_gpt_log" src={logo} alt="" />
           <div style={{fontFamily:"inter", fontSize:"30px", color:"white" }}>LogGPT</div>
+          <div className="startNewConvoDiv">
+            <div className="startNewConvo BTN2">
+              <div style={{fontSize:"20px", marginRight:"5px"}}>+</div>
+              <div>Conversation</div>
+            </div>
+          </div>
+          <div className="profileIcon BTN1"><Person2Icon/></div>
         </div>
       </div>
 

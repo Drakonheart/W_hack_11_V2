@@ -35,6 +35,23 @@
 }
 
 
+.BTN2 {
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.BTN2:hover {
+  background-color: var(--color-palette_4);
+  color: white;
+  transform: scale(1.1); /* Use a scale factor instead of fixed pixels */
+}
+
+.BTN2:active {
+  transform: scale(0.95); /* Slightly smaller to mimic a "pressed" effect */
+  transition: transform 0.05s ease; /* Quicker transition for responsiveness */
+}
+
+
 .cs-message-list{
   background-color: rgba(255, 0, 0, 0) !important;
 
